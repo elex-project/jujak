@@ -1,6 +1,6 @@
-# tmpl-java-library
+# Project Jujak
 
-Template for Java library project
+JSON utility
 
 ---
 developed by Elex
