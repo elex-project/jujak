@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "1.0-SNAPSHOT"
+version = "1.1.0"
 description = "JSON utilities"
 
 repositories {
@@ -32,12 +32,12 @@ configurations {
 }
 
 tasks.jar {
-	manifest { // todo
+	manifest {
 		attributes(mapOf(
 				"Implementation-Title" to project.name,
 				"Implementation-Version" to project.version,
 				"Implementation-Vendor" to "ELEX co.,pte.",
-				"Automatic-Module-Name" to "com.elex_project.${project.name}"
+				"Automatic-Module-Name" to "com.elex_project.jujak"
 		))
 	}
 }
@@ -109,7 +109,7 @@ publishing {
 				password = project.findProperty("repo.password") as String
 			}
 		}
-		maven { //todo
+		maven {
 			name = "mavenGithub"
 			url = uri("https://maven.pkg.github.com/elex-project/jujak")
 			credentials {
@@ -124,6 +124,9 @@ dependencies {
 	implementation("org.slf4j:slf4j-api:1.7.30")
 	implementation("org.jetbrains:annotations:20.1.0")
 
+	implementation( "com.elex-project:abraxas:4.0.3")
+	implementation( "org.json:json:20201115")
+
 	compileOnly("org.projectlombok:lombok:1.18.16")
 	annotationProcessor("org.projectlombok:lombok:1.18.16")
 	testAnnotationProcessor("org.projectlombok:lombok:1.18.16")
@@ -132,4 +135,3 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
 }
-
